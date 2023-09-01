@@ -1,0 +1,105 @@
+@import '_variable.scss';
+
+@mixin boxshadow {
+    box-shadow: $boxshadow;
+    -webkit-box-shadow: $boxshadow;
+    -moz-box-shadow: $boxshadow;
+};
+
+body {
+    font: 100% "Space Mono", monospace;
+    color: $color-bleu-grey;
+    margin: 0;
+    padding: 0;
+    background-color: $color-white;
+    overflow-x: hidden;
+  }
+  
+  main {
+    padding: 0 $padding;
+        .messages{
+            padding: $padding;
+
+            .success {
+                background-color: $color-green;
+                @extend .messages;
+                border: 1px solid $color-grey;
+                color: $color-white;
+              }
+            .error {
+                background-color: $color-red;
+                @extend .success;
+                &:hover {
+                    background-color: $color-green;
+                }
+              }
+            .warning {
+                background-color: $color-orange;
+                @extend .success;
+              }
+        }
+  }
+
+article{
+    display: flex;
+    flex-wrap: wrap;
+    #selling-points{
+        flex-grow: 2;
+        flex-basis: 100%;
+    }
+    section{
+        flex-grow: 1;
+        flex-basis: 45%;
+        border: 1px $color-grey solid;
+        @include boxshadow();
+        padding: $padding;
+        margin: 16px;
+        clear: both;
+        overflow: auto;
+        box-sizing: border-box;        
+        
+        code {
+            background: $color-black;
+            border: 1px solid $color-bleu-grey;
+            color:$color-grey;
+            page-break-inside: avoid;
+            font-family: monospace;
+            font-size: 15px;
+            line-height: 1.6;
+            margin-bottom: 1.6em;
+            max-width: 100%;
+            overflow: auto;
+            padding: $padding;
+            display: block;
+            word-wrap: break-word;
+        
+            .after{
+                float: right;
+                width: 40%;
+            }
+            .before{
+                float: left;
+                width: 40%;
+            }
+        }
+    }
+}
+
+h1,
+h2,
+h3 {
+  color: $color-magenta;
+}
+header {
+    h1 {
+    text-align: center;
+    }
+}
+footer {
+    h3 {
+    text-align: center;
+    font-size: 1.5em;
+    padding: 2*$padding;
+    margin-bottom: 0px;
+    }
+}
